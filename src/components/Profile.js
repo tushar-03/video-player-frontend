@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../API';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 
@@ -24,7 +24,7 @@ function Profile() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('/api/user/profile/upload-pic', formData, {
+            const response = await api.post('/api/user/profile/upload-pic', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`
@@ -52,7 +52,7 @@ function Profile() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('/api/user/profile/upload-video', formData, {
+            const response = await api.post('/api/user/profile/upload-video', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`
